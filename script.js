@@ -1,4 +1,4 @@
-let urunEkle = document.querySelector(".urun-ekle");
+dlet urunEkle = document.querySelector(".urun-ekle");
 let popupKapsayici = document.querySelector(".popup-kapsayici");
 let carpiButonu = document.querySelector(".carpi-butonu");
 
@@ -82,32 +82,63 @@ products.push(newProduct);
 
 
 
-/*Hocanın Notları */ ürün ekle butonu
+/*Hocanın Notları 
+ ürün ekle butonu
 const addBtnE1 = document.getElementById("addProduct");
 const addBtnDrawerE1 = document.getElementById("addProductDrawer");
 const productWrapperE1 = document.querySelector(".productsWrapper");
 const drawerE1 = document.querySelector(".drawer");
+const closeBtnEl = document.getElementById("closeBtn");
 
 const productName = document.getElementById("prName");
 const productDesc = document.getElementById("prDesc");
 const productPrice = document.getElementById("prPrice");
 
+function closeDrawer(){
+    drawerE1.classList.toggle("invisible") // toogle methodu invisible varsa siler yoksa ekler. invisible hidden ile benzerdir.
+}
+closeBtnEl.addEventListener("click", closeDrawer) 
 
-addBtnE1.addEventListener("click", () => {
-    drawerE1.classList.toggle("invisible"); // toogle methodu invisible varsa siler yoksa ekler. invisible hidden ile benzerdir.
-})
+addBtnE1.addEventListener("click", closeDrawer)
+
+
+
 
 const addProduct = () => {
-    const name = productName.value;
-    const price = productPrice.value;
-    const desc = productDesc.value;
 
     const product = {
-        name,  // name: name, price: price, gibi eşit olunca yazmanın kısayolu == name,
-        price,
-        desc,
+        name: productName.value, // name: name, price: price, gibi eşit olunca yazmanın kısayolu == name,
+        price: productPrice.value,
+        desc: productDesc.value,
     }
+
+    let rowContainer = document.getElementById("productRows")
+
+    const productCard = `
+    <div class="w-1/3 p-4">
+        <div class="bg-white flex flex-col justify-center items-center border h-24">
+            <h2>${product.name}</h2>
+            <p>${product.desc}</p>
+            <p>${product.price}</p>
+        </div>
+    </div>
+    `
+
+    rowContainer.innerHTML += productCard; // += şu anlama geliyor rowContainer.innerHTML + productCard;
+
+    product.value = "";
+    productPrice.value = "";
+    productDesc.value = "";
+    drawerE1.classList.toggle("invisible");
 }
 
+
+
 addBtnDrawerE1.addEventListener("click", addProduct);
+
+*/
+
+
+
+
 
