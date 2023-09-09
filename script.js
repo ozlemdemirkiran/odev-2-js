@@ -80,3 +80,34 @@ urunAciklamasiInput.addEventListener("keyup", (event) => {
 
 products.push(newProduct);
 
+
+
+/*Hocanın Notları */ ürün ekle butonu
+const addBtnE1 = document.getElementById("addProduct");
+const addBtnDrawerE1 = document.getElementById("addProductDrawer");
+const productWrapperE1 = document.querySelector(".productsWrapper");
+const drawerE1 = document.querySelector(".drawer");
+
+const productName = document.getElementById("prName");
+const productDesc = document.getElementById("prDesc");
+const productPrice = document.getElementById("prPrice");
+
+
+addBtnE1.addEventListener("click", () => {
+    drawerE1.classList.toggle("invisible"); // toogle methodu invisible varsa siler yoksa ekler. invisible hidden ile benzerdir.
+})
+
+const addProduct = () => {
+    const name = productName.value;
+    const price = productPrice.value;
+    const desc = productDesc.value;
+
+    const product = {
+        name,  // name: name, price: price, gibi eşit olunca yazmanın kısayolu == name,
+        price,
+        desc,
+    }
+}
+
+addBtnDrawerE1.addEventListener("click", addProduct);
+
