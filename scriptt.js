@@ -29,7 +29,6 @@ carpiButonu.addEventListener("click", popupGizleme);
 
 
 // product
-
 const urunOlusturmaButonu = document.querySelector("#urun-olustur-butonu");
 const eklenmisUrun = document.getElementById("added-product");
 
@@ -38,23 +37,32 @@ const urunFiyati = document.getElementById("urun-fiyati");
 const urunAciklamasi = document.getElementById("urun-aciklamasi");
 
 
-urunOlusturmaButonu.addEventListener("click", () => {
+const productArray =[];
 
-    let newProduct = {
+function productFunction(){
+
+    let newProduct1 = {
         productName: urunAdi.value,
         price: urunFiyati.value,
         description: urunAciklamasi.value,
-    }
+    };
+
+    productArray.push(newProduct1);
+
+    let lengthh = document.querySelector(".length");
+
+    lengthh.innerText = `ÜRÜN LİSTESİ(${productArray.length})`
+    
 
     let card = `
     <div class="w-1/4 p-4 ml-16">
         <div class="shadow-md flex flex-col justify-center items-center border-2 rounded-lg h-auto">
-            <h2>${newProduct.productName}</h2>
+            <h2>${newProduct1.productName}</h2>
             <div class="flex gap-1 align-center">
-                <p>${newProduct.price}</p>
+                <p>${newProduct1.price}</p>
                 <img src="./img/turkish-lira.png" class="h-3">
             </div>
-            <p>${newProduct.description}</p>
+            <p>${newProduct1.description}</p>
             <a class="pt-3 text-teal-600" href="#">ÜRÜNÜ DÜZENLE</a>
         </div>
     </div>
@@ -65,18 +73,8 @@ urunOlusturmaButonu.addEventListener("click", () => {
     urunAdi.value = "";
     urunFiyati.value = "";
     urunAciklamasi.value = "";
-});
 
+}
 
-
-
-    //length
-    
-// let containerr = document.querySelector(".container");
-
-// let toplamLength = `<h1 class="font-bold mx-10 mt-3">Ürün Listesi (${eklenmisUrun.children.length})</h1>`
-
-// containerr.innerHTML = toplamLength;
-// // containerr.innerText += toplamLength;
-// containerr.innerText += eklenmisUrun.children.length;
+urunOlusturmaButonu.addEventListener("click", productFunction)
 
