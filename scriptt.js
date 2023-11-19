@@ -58,7 +58,7 @@ function productFunction(){
     <div class="w-1/4 p-4 ml-16">
         <div class="shadow-md flex flex-col justify-center items-center border-2 rounded-lg h-auto">
             <h2>${newProduct1.productName}</h2>
-            <div class="flex gap-1 align-center">
+            <div class="flex gap-1 items-center">
                 <p>${newProduct1.price}</p>
                 <img src="./img/turkish-lira.png" class="h-3">
             </div>
